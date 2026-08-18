@@ -2,4 +2,7 @@
 name = "coding-challenges"
 version = "0.1.0"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.2",
+    "requests>=2.34.2",
+]

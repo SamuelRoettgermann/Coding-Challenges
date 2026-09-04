@@ -1,18 +1,9 @@
 # 15 - Lattice paths #
+from projecteuler.utils import cache
+
+
 def possibilities(n: int) -> int:
-    def memoize(f):
-        cache = {}
-
-        def wrapper(*args, **kwargs):
-            key = str(args) + str(kwargs)
-            if key not in cache:
-                cache[key] = f(*args, **kwargs)
-
-            return cache[key]
-
-        return wrapper
-
-    @memoize
+    @cache
     def helper(downs: int, rights: int) -> int:
         if not downs or not rights:
             return 1

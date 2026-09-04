@@ -1,21 +1,10 @@
 # 14 - Longest Collatz sequence #
 import time
 
-
-def memoize(f):
-    cache = {}
-
-    def wrapper(*args, **kwargs):
-        key = str(args) + str(kwargs)
-        if key not in cache:
-            cache[key] = f(*args, **kwargs)
-
-        return cache[key]
-
-    return wrapper
+from projecteuler.utils import cache
 
 
-@memoize
+@cache
 def collatz_len(n: int) -> int:
     if n > 1:
         return 1 + collatz_len(3 * n + 1 if n & 1 else n // 2)
